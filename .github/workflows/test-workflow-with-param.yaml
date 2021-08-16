@@ -7,12 +7,8 @@ on:
           description: Environment to deploy to
           required: true
 jobs:
-  workflow1:
-    name: Workflow 1
-    runs-on: ${{ matrix.os }}
-    env:
-      GITHUB_TOKEN: ${{ secrets.ACTION_GITHUB_TOKEN }}
-
+  test_job:
+    runs-on: ubuntu-latest
     steps:
       - name: Step 1
         run: |
