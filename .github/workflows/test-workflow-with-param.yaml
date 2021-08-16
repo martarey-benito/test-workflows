@@ -9,10 +9,6 @@ on:
 jobs:
   workflow1:
     name: Workflow 1
-    strategy:
-      matrix:
-        os: [self-hosted-ubuntu-2004]
-        java-version: [8]
     runs-on: ${{ matrix.os }}
     env:
       GITHUB_TOKEN: ${{ secrets.ACTION_GITHUB_TOKEN }}
@@ -20,4 +16,4 @@ jobs:
     steps:
       - name: Step 1
         run: |
-          echo 'Step #1 in the pipeline'
+          echo 'Step #1 deploying to ${{github.event.inputs.environment}}'
