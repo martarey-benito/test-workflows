@@ -1,0 +1,23 @@
+name: main test & release
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+          description: Environment to deploy to
+          required: true
+jobs:
+  workflow1:
+    name: Workflow 1
+    strategy:
+      matrix:
+        os: [self-hosted-ubuntu-2004]
+        java-version: [8]
+    runs-on: ${{ matrix.os }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.ACTION_GITHUB_TOKEN }}
+
+    steps:
+      - name: Step 1
+        run: |
+          echo 'Step #1 in the pipeline'
