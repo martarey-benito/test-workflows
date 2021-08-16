@@ -5,7 +5,7 @@ on:
     inputs:
       environment:
           description: Environment to deploy to
-          default: staging
+          options: ['staging','prod']
           required: true
 jobs:
   test_job:
